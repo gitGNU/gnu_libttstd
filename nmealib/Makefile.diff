@@ -1,0 +1,37 @@
+--- Makefile.old	2008-03-11 14:16:36.000000000 +0100
++++ Makefile	2008-10-15 18:31:45.000000000 +0200
+@@ -1,4 +1,4 @@
+-CC = gcc 
++CC = arm-linux-gcc 
+  
+ BIN = lib/libnmea.a 
+ MODULES = generate generator parse parser tok context time info gmath sentence  
+@@ -11,7 +11,7 @@
+ SMPLOBJ = $(SAMPLES:%=samples/%/main.o)
+ 
+ INCS = -I include 
+-LIBS = -lm -Llib -lnmea
++LIBS = -lm -Llib
+  
+ .PHONY: all all-before all-after clean clean-custom doc
+  
+@@ -29,8 +29,8 @@
+ remake: clean all
+ 
+ $(BIN): $(LINKOBJ)
+-	ar rsc $@ $^
+-	ranlib $@
++	arm-linux-ar rsc $@ $^
++	arm-linux-ranlib $@
+ 
+ build/nmea_gcc/%.o: src/%.c 
+ 	$(CC) $(INCS) -c $< -o $@
+@@ -38,7 +38,7 @@
+ samples: $(SMPLS)
+ 
+ samples_%: samples/%/main.o
+-	$(CC) $< $(LIBS) -o build/$@
++	$(CC) $< $(LIBS) lib/libnmea.a -o build/$@
+ 
+ samples/%/main.o: samples/%/main.c
+ 	$(CC) $(INCS) -c $< -o $@

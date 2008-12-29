@@ -1,0 +1,98 @@
+/*
+    This file is part of ttstd.
+
+    ttstd is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    ttstd is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with ttstd.  If not, see <http://www.gnu.org/licenses/>.
+
+	Copyright (C) 2008,
+		Niclas Hoyer
+*/
+
+/*! \mainpage ttstd documentation
+ * \section intro_sec Introduction
+ * The ttstd library has basic functions for communicating with hardware 
+ * and hardware drivers from golinux on TomTom navigation devices and provides
+ * the gained information in easily accessible structs and variables.\n
+ * See \ref features "Currently implemented features"\n
+ *
+ * \section dependency_sec Dependencies
+ * \li \ref dep_nmealib "NMEA Library"
+ *
+ * \section install_sec Installation
+ * \li please see INSTALL file in libttstd root directory
+ *
+ * \section example_sec Examples
+ * \li see test.c for an example that implements nearly all functions of ttstd
+ *
+ * \section help_sec Help Wanted ;)
+ * If anyone likes to help or has some code/functions that would fit into ttstd please contact \ref developers "the developers" :-)
+ */
+
+/*!
+ * \page features Currently implemented features
+ * \section battery Battery
+ * functions for gaining information about the battery status e.g. current battery voltage, charge voltage and charge status.\n
+ * see battery.h for more details
+ *
+ * \section framebuffer Framebuffer
+ * basic functions for interfacing with the framebuffer meaning the display (clear display, set a pixel etc.)\n
+ * see framebuffer.h for more details
+ *
+ * \section gps GPS
+ * functions for getting NMEA strings and parsing them to GPS coordinates
+ * and other information (mainly nmealib is used for parsing)\n
+ * e.g. latitude, longtitude, no. of satellites in view etc.\n
+ * see gps.h for more details
+ *
+ * \section touchscreen Touchscreen
+ * functions for interfacing with the touchscreen (e.g. x/y pos and pressure)\n
+ * see touchscreen.h for more details
+ */
+
+/*!
+ * \page dep_nmealib Dependency: NMEA Library
+ * ttstd lib needs nmealib for parsing the NMEA GPS-Strings from the gpspipe to useful data in the structs\n
+ * NMEA Library homepage: http://nmea.sourceforge.net \n\n
+ * for this version of ttstd nmealib 0.5.3 was used which can be found at http://downloads.sourceforge.net/nmea/nmealib-0.5.3.zip 
+ * (newer versions should work, too.)\n\n
+ * There were little changes made to the Makefile in order to compile for the ARM architecture, \n
+ * a full .diff file can be found at \ref Makefile.diff "nmealib/Makefile.diff" in the ttstd directory
+ */
+
+/*!
+ * \page Makefile.diff Makefile.diff
+ * Diff against standard version of the Makefile from nmealib to compile for ARM-architecture
+ * \include Makefile.diff
+ */
+
+/*!
+ * \page developers Developers
+ * \li Niclas Hoyer\n
+ * email: niclas at verbugt dot de\n
+ * icq: 333763498
+ */
+
+/*! 
+ *\file ttstd.h
+ *\brief header file that includes all headers of ttstd
+ */
+
+#ifndef TTSTD_TTSTD_H
+#define TTSTD_TTSTD_H
+
+#include <ttstd/battery.h>
+#include <ttstd/framebuffer.h>
+#include <ttstd/gps.h>
+#include <ttstd/touchscreen.h>
+
+#endif

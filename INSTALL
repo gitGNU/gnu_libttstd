@@ -1,0 +1,76 @@
+Installation instructions for libttstd
+
+1. Dependencies
+
+	For GPS-parsing libttstd needs nmealib ( http://nmea.sourceforge.net )
+	To compile nmealib for the ARM architecture you need to change a few lines
+	in the Makefile. In general change any lib or compile relevant executable
+	to the arm-linux-* correspondant. Fortunately a diff file comes with ttstd
+	(nmealib/Makefile.diff) so you can easily patch the original Makefile.
+
+	At this time nmealib-0.5.3 is the newest release, but newer versions should
+	work too.
+
+	So first get nmealib and extract it:
+	wget "http://downloads.sourceforge.net/nmea/nmealib-0.5.3.zip"
+	unzip nmealib-0.5.3.zip
+	cd nmealib
+
+	Then copy the Makefile.diff from ttstd to the nmealib directory and patch
+	the original nmealib Makefile:
+	cp /your/path/to/libttstd/nmealib/Makefile.diff Makefile.diff
+	patch -p0 < Makefile.diff
+
+	Now you should be ready to compile nmealib:
+	make
+
+	Now just copy the compiled nmealib.a to the src directory of libttstd:
+	cp lib/libnmea.a /your/path/to/libttstd/src/
+
+2. Installing libttstd
+
+2.1. Toolchain
+	
+	First make sure that you have a working toolchain for the TomTom golinux
+	as described here: http://www.tomtom.com/gpl (see right above
+	"2. The Linux Kernel") a link to a precompiled toolchain is given:
+
+	http://www.tomtom.com/gpl/toolchain_redhat_gcc-3.3.4_glibc-2.3.2-20060131a.tar.gz
+
+	"This version was built on Red Hat Enterprise Linux 3 for x86, but it
+	should also work on most other recent x86 Linux distributions, as long as
+	you have a 2.4 or higher kernel, and glibc 2.3.2 or higher. You need to
+	unpack it in a directory /usr/local/cross, and add
+	/usr/local/cross/gcc-3.3.4_glibc-2.3.2/bin to your PATH environment
+	variable to be able to use it. "
+
+	alternatively you can follow the guide on opentom.org:
+	
+		http://opentom.org/Host_linux_target_ARM
+
+	or build your own toolchain using crosstool
+	
+		http://opentom.org/Toolchain
+
+	Finally you should check the TOOLCHAIN variable inside the Makefile to
+	make sure that it fits your toolchain directory
+
+2.2. Compiling
+
+	To compile libttstd just go to the root directory of libttstd and run
+	make
+
+	this will compile the libsources from src/ to lib/libttstd.a and the
+	examples in examples/ to binaries in bin/ ready to run on TomTom devices
+
+2.3. Install
+	
+	Finally run >make install<.
+	This will copy the libttstd include headers to your toolchain include
+	directory and copy libttstd.a to the lib directory of your toolchain.
+
+2.3. Documentation
+	
+	For documenting doxygen was used to generate document files.
+	Just run >make doc< and html documentation is stored in doc/html/
+	

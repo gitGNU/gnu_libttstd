@@ -1,0 +1,22 @@
+
+	libttstd - 	functions for standard interfacing with golinux on
+				TomTom devices
+
+libttstd solves generic problems in developing software for TomTom devices
+that run golinux.
+Currently implemented features are:
+	
+	- Battery
+		provides information about voltage, charge status etc.
+
+	- Framebuffer
+		simple interface to the framebuffer device (display) e.g. put a pixel
+		on the display, clear the display etc.
+
+	- GPS
+		provides GPS-information that is gained from NMEA-Strings parsed with
+		nmealib. (latitude, longtitude, satellites in view etc.)
+
+	- Touchscreen
+		provides touchscreen information such as x and y position and pressure
+				
