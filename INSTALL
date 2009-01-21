@@ -55,7 +55,17 @@ Installation instructions for libttstd
 	Finally you should check the TOOLCHAIN variable inside the Makefile to
 	make sure that it fits your toolchain directory
 
-2.2. Compiling
+2.2. Golinux header files
+	
+	Before you can finally compile libttstd you need the headers files from
+	TomTom's golinux which are also available on their gpl site:
+	http://www.tomtom.com/gpl
+
+	e.g. http://www.tomtom.com/gpl/golinux-tt235491.tar.bz2
+	extract it and copy the include directory to your cross-compiler
+	toolchain directory.
+
+2.3. Compiling
 
 	To compile libttstd just go to the root directory of libttstd and run
 	make
@@ -63,13 +73,13 @@ Installation instructions for libttstd
 	this will compile the libsources from src/ to lib/libttstd.a and the
 	examples in examples/ to binaries in bin/ ready to run on TomTom devices
 
-2.3. Install
+2.4. Install
 	
 	Finally run >make install<.
 	This will copy the libttstd include headers to your toolchain include
 	directory and copy libttstd.a to the lib directory of your toolchain.
 
-2.3. Documentation
+2.5. Documentation
 	
 	For documenting doxygen was used to generate document files.
 	Just run >make doc< and html documentation is stored in doc/html/
