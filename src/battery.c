@@ -25,10 +25,10 @@
 #include <ttstd/battery.h>
 
 /*!
- * \brief Filles BATTERY_STATUS struct with Information of current Battery Status
+ * \brief Filles ttstdBAT struct with Information of current Battery Status
  * \return Returns negative values if BATTERY_DEVICE couldn't be opened
  */
-int ttstd_UpdateBattery(BATTERY_STATUS *bat)
+int ttstd_UpdateBattery(ttstdBAT *bat)
 {
 	int ret;
 	ret = open(BATTERY_DEVICE,O_RDONLY|O_NOCTTY);

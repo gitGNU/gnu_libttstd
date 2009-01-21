@@ -30,6 +30,8 @@
 #include <fcntl.h>
 #include <barcelona/Barc_Battery.h>
 
+#define ttstdBAT BATTERY_STATUS
+
 /*!
  * \brief defines battery device
  * \note On TomTom ONE usually /dev/battery (tested with TTONEv2 and golinux-tt1518115)\n
@@ -37,6 +39,6 @@
  */
 #define BATTERY_DEVICE "/dev/battery"
 
-int ttstd_UpdateBattery(BATTERY_STATUS *bat);
+int ttstd_UpdateBattery(ttstdBAT *bat);
 
 #endif

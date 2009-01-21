@@ -40,7 +40,7 @@ int main(int argc, char** argv)
 	int tmp; //temporary variable
 
 	//Example for battery functions////////////////////////////
-/*	BATTERY_STATUS test;
+	ttstdBAT test;
 
 	tmp = ttstd_UpdateBattery(&test);
 	
@@ -50,11 +50,11 @@ int main(int argc, char** argv)
 	printf("ChargeCurrent: %d\n",test.u16ChargeCurrent);
 	printf("ChargeStatus: %d\n",test.u8ChargeStatus);
 	printf("VoltageSource: %d\n\n",test.u8VoltageSource);
-*/	//End Example for battery functions////////////////////////
+	//End Example for battery functions////////////////////////
 
 
 
-/*	//Example for framebuffer functions////////////////////////
+	//Example for framebuffer functions////////////////////////
 	ttstdFB test2;
 	tmp = ttstd_OpenFramebuffer(&test2);
 	
@@ -65,11 +65,11 @@ int main(int argc, char** argv)
 	ttstd_Flush(&test2);
 
 	ttstd_CloseFramebuffer(&test2);
-*/	//End Example for framebuffer functions////////////////////
+	//End Example for framebuffer functions////////////////////
 
 
 
-/*	//Example for GPS functions////////////////////////////////
+	//Example for GPS functions////////////////////////////////
 	ttstdGPS test3;
 	tmp = ttstd_OpenGPS(&test3,0);
 
@@ -86,7 +86,7 @@ int main(int argc, char** argv)
 
 	printf("lat,lon: %2.6f,%2.6f - satellites: %d in use %d in view\n\n",test3.lat,test3.lon,test3.info.satinfo.inuse,test3.info.satinfo.inview);
 	ttstd_CloseGPS(&test3);
-*/	//End Example for GPS functions////////////////////////////
+	//End Example for GPS functions////////////////////////////
 
 
 
