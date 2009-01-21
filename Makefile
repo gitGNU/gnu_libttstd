@@ -24,7 +24,7 @@ src/%.o: src/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 samples: $(SMPLS)
-	$(CC) examples/$<.o $(LDFLAGS) lib/libttstd.a -o bin/$<
+	$(CC) examples/$<.o $(LDFLAGS) lib/libttstd.a src/libnmea.a -o bin/$<
 
 $(SMPLS): $(SMPLOBJ)
 
